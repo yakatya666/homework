@@ -6,12 +6,6 @@ Console.WriteLine("Введите второе число");
 int userNumber2 = Convert.ToInt32(Console.ReadLine());
 if (userNumber1>userNumber2)
 {
-    Console.WriteLine("Наибольшее число = ");
-    Console.WriteLine(userNumber1);
+    Console.WriteLine("Наибольшее число = " + userNumber1);
+    Console.WriteLine("Наименьшее число = " + userNumber2);
 }   
-
-else
-{
-    Console.Write("Наибольшее число = ");
-    Console.WriteLine(userNumber2);
-}
