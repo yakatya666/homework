@@ -5,9 +5,9 @@ int a = Convert.ToInt32(Console.ReadLine());
 string Text = Convert.ToString(a);
 if (Text.Length > 2)
 {
-  Console.WriteLine("третья цифра -> " + Text[2]);
+  Console.WriteLine("Третья цифра " + Text[2]);
 }
-else 
+else  
 {
-  Console.WriteLine("-> третьей цифры нет");
+  Console.WriteLine("Третьей цифры нет");
 }
