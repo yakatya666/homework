@@ -1,75 +1,29 @@
 ﻿// Задача 29: Напишите программу, которая задаёт массив из N элементов и выводит их на экран.
 
-Console.Write("Введите ряд чисел, разделенных запятой: ");
-string? seriesOfNumbers = Console.ReadLine();
-seriesOfNumbers = seriesOfNumbers + ",";
-string RemovingSpaces (string series)
+using System;
+class Program
 {
-  string seriesNew = "";
-  for (int i = 0; i < series.Length; i++)
-  {
-    if (series[i] != ' ') 
+    static void Main(string[] args)
     {
-      seriesNew += series[i];
-    }
-  }
-  return seriesNew;
-}
-void СheckNumber2 (int  series)
-{
-
-      if (series == '0'||series == '1'||series == '2'
-      ||series == '3'||series == '4'||series == '5'||series == '6'
-      ||series == '7'||series == '8'||series == '9'||series == ','
-      ||series == '-')
-      {
-      }
-      else 
-      {
-          Console.WriteLine($"Ошибка ввода  символа. Вводи цифры.");
-
-      }
-}
-
-int[] ArrayOfNumbers(string seriesNew)
-{ 
-  int[] arrayOfNumbers = new int[1];   
-  int j =0;
-  for (int i = 0; i < seriesNew.Length; i++){
-    string seriesNew1 = "";
-
-    while (seriesNew[i] != ',' && i < seriesNew.Length){
-      seriesNew1 += seriesNew[i];
-      СheckNumber2(seriesNew[i]);
-      i++;
-    }
-    arrayOfNumbers[j] = Convert.ToInt32(seriesNew1); 
-    if (i < seriesNew.Length-1)
+    string number = Console.ReadLine();
+    string[] array = new string[number.Length];
+    int index = 0;
+    foreach (var item in number)
     {
-      arrayOfNumbers = arrayOfNumbers.Concat(new int[] {0}).ToArray();
+        if(item != ',')
+        {
+            array[index] += item.ToString();
+        }
+        else
+        {
+              index++;
+        }
     }
-    j++;
-  }
-  return arrayOfNumbers;
-}
-
-void PrintArry(int[] coll)
-{
-  int count = coll.Length;
-  int index = 0;
-  Console.Write("[");
-  while(index < count)
-  {
-    Console.Write(coll[index]);
-    index++;
-    if (index < count)
+    Console.Write("[");
+    for(int i = 0; i<=index-1; i++)
     {
-      Console.Write(", ");
+    Console.Write(array[i] + ", ");
     }
-  }
-  Console.Write("]");
-} 
-
-string seriesNew = RemovingSpaces(seriesOfNumbers);
-int[] arrayOfNumbers =  ArrayOfNumbers(seriesNew);
-PrintArry(arrayOfNumbers);
+    Console.Write(array[index] + "]");
+    }
+}
